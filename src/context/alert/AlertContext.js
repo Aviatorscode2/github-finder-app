@@ -3,9 +3,9 @@ import alertReducer from './AlertReducer';
 const AlertContext = createContext();
 
 export const AlertProvider = ({ children }) => {
-  initialState = null;
+  const initialState = null;
 
-  const { state, dispatch } = useReducer(alertReducer, initialState);
+  const [state, dispatch] = useReducer(alertReducer, initialState);
 
   //   function to display the alert for error messages
   const setAlert = (msg, type) => {
