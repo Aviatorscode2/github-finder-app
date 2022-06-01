@@ -3,15 +3,18 @@ import { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../components/layouts/Spinner';
 import { useParams } from 'react-router-dom';
+import RepoList from '../components/repos/RepoList';
 import GithubContext from '../context/github/GithubContext';
 
 function User() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { getUser, user, loading, getUserRepos, repos } =
+    useContext(GithubContext);
 
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
   }, []);
 
   const {
@@ -58,7 +61,7 @@ function User() {
         </div>
         <div className="col-span-2">
           <div className="mb-6">
-            <h1 className="text-3xl card-tilte">
+            <h1 className="text-3xl card-title">
               {name}
               <div className="ml-2 mr-1 badge badge-success">{type}</div>
               {hireable && (
@@ -151,6 +154,7 @@ function User() {
           </div>
         </div>
       </div>
+      <RepoList />
     </div>
   );
 }
