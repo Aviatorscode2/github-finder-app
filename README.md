@@ -4,6 +4,8 @@
 - Tailwind CSS
 - DaisyUI
 - Axios 
+- Github API
+- Postman for debugging
 
 ## To contribute to this project
 - Fork the repo, so that you can have your copy
